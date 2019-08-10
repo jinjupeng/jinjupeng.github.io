@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinjupeng.github.io/</id>
     <title>贪睡的猫的博客</title>
-    <updated>2019-08-10T04:43:33.180Z</updated>
+    <updated>2019-08-10T04:50:31.863Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinjupeng.github.io/"/>
     <link rel="self" href="https://jinjupeng.github.io//atom.xml"/>
@@ -10,6 +10,54 @@
     <logo>https://jinjupeng.github.io//images/avatar.png</logo>
     <icon>https://jinjupeng.github.io//favicon.ico</icon>
     <rights>All rights reserved 2019, 贪睡的猫的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[Git入门简介]]></title>
+        <id>https://jinjupeng.github.io//post/git-ru-men-jian-jie</id>
+        <link href="https://jinjupeng.github.io//post/git-ru-men-jian-jie">
+        </link>
+        <updated>2019-08-10T04:36:52.000Z</updated>
+        <summary type="html"><![CDATA[<h2 id="git简单使用">Git简单使用</h2>
+<pre><code class="language-markdown">
+git init            //初始化本地仓库
+git add .           //添加文件到版本库（只是添加到缓存区），.代表添加文件夹下的所有文件
+git commit -m &quot;first commit&quot;             //添加要提交文件的描述信息
+git remote add origin +你的远程仓库地址     //链接到远程仓库，创建主分支
+git push -u origin master                //将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建
+git pull origin master   //取回远程仓库主机或某个分支（或master）的更新，再与本地的指定分支合并。
+</code></pre>
+<h2 id="git名词解释">Git名词解释</h2>
+]]></summary>
+        <content type="html"><![CDATA[<h2 id="git简单使用">Git简单使用</h2>
+<pre><code class="language-markdown">
+git init            //初始化本地仓库
+git add .           //添加文件到版本库（只是添加到缓存区），.代表添加文件夹下的所有文件
+git commit -m &quot;first commit&quot;             //添加要提交文件的描述信息
+git remote add origin +你的远程仓库地址     //链接到远程仓库，创建主分支
+git push -u origin master                //将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建
+git pull origin master   //取回远程仓库主机或某个分支（或master）的更新，再与本地的指定分支合并。
+</code></pre>
+<h2 id="git名词解释">Git名词解释</h2>
+<!-- more -->
+<h3 id="拉取-获取-合并-提交-推送-同步">拉取、获取、合并、提交、推送、同步</h3>
+<ol>
+<li><strong>拉取（Pull）</strong>：将远程版本库合并到本地版本库；相当于（Fetch + Meger）</li>
+<li><strong>获取（Fetch）</strong>：从远程仓库获取最新版本</li>
+<li><strong>合并（Meger）</strong>：将两个版本库进行合并操作</li>
+<li><strong>提交（Commit）</strong>：将所做的更改，存入本地暂存库</li>
+<li><strong>推送（Push）</strong>：将所做的更改，存入远程版本库</li>
+<li><strong>同步（Pull + Push）</strong>：先将远程库拉取，再将本地库推送到远程库（注意顺序！）；相当于（Pull+ Push）</li>
+</ol>
+<h2 id="git简单示例图">Git简单示例图</h2>
+<p><img src="https://some-images.oss-cn-hangzhou.aliyuncs.com/git.png" alt="Git"></p>
+<h2 id="git更新gitignore后如何提交">Git更新.gitignore后如何提交</h2>
+<pre><code>
+git rm -r --cached .    //清空缓存
+git add .    //重新提交
+git commit -m &quot;update .gitignore&quot;
+git push
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://jinjupeng.github.io//post/hello-gridea</id>

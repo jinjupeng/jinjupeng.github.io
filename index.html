@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://jinjupeng.github.io//favicon.ico?v=1565411869295">
+<link rel="shortcut icon" href="https://jinjupeng.github.io//favicon.ico?v=1565412623487">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css">
 <link rel="stylesheet" href="https://jinjupeng.github.io//styles/main.css">
 
@@ -30,7 +30,7 @@
   <div class="top-container" data-aos="fade-right">
     <div class="top-header-container">
       <a class="site-title-container" href="https://jinjupeng.github.io/">
-        <img src="https://jinjupeng.github.io//images/avatar.png?v=1565411869295" class="site-logo">
+        <img src="https://jinjupeng.github.io//images/avatar.png?v=1565412623487" class="site-logo">
         <h1 class="site-title">贪睡的猫的博客</h1>
       </a>
       <div class="menu-btn" @click="menuVisible = !menuVisible">
@@ -40,25 +40,25 @@
     <div>
       
         
-          <a href="/" class="site-nav">
+          <a href="https://jinjupeng.github.io//post/git-ru-men-jian-jie/" class="site-nav">
             首页
           </a>
         
       
         
-          <a href="/archives" class="site-nav">
+          <a href="https://jinjupeng.github.io//post/git-ru-men-jian-jie/" class="site-nav">
             归档
           </a>
         
       
         
-          <a href="/tags" class="site-nav">
+          <a href="https://jinjupeng.github.io//post/git-ru-men-jian-jie/" class="site-nav">
             标签
           </a>
         
       
         
-          <a href="/post/about" class="site-nav">
+          <a href="https://jinjupeng.github.io//post/about/" class="site-nav">
             关于
           </a>
         
@@ -91,6 +91,31 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
+          
+            <article class="post-item">
+              <div class="left">
+                <a href="https://jinjupeng.github.io//post/git-ru-men-jian-jie">
+                  <h2 class="post-title">Git入门简介</h2>
+                </a>
+                <div class="post-date">
+                  2019-08-10
+                </div>
+                <div class="post-abstract">
+                  <h2 id="git简单使用">Git简单使用</h2>
+<pre><code class="language-markdown">
+git init            //初始化本地仓库
+git add .           //添加文件到版本库（只是添加到缓存区），.代表添加文件夹下的所有文件
+git commit -m &quot;first commit&quot;             //添加要提交文件的描述信息
+git remote add origin +你的远程仓库地址     //链接到远程仓库，创建主分支
+git push -u origin master                //将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建
+git pull origin master   //取回远程仓库主机或某个分支（或master）的更新，再与本地的指定分支合并。
+</code></pre>
+<h2 id="git名词解释">Git名词解释</h2>
+
+                </div>
+              </div>
+              
+            </article>
           
             <article class="post-item">
               <div class="left">

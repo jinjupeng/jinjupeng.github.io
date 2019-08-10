@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>文章归档 | 贪睡的猫的博客</title>
+<title>Git入门简介 | 贪睡的猫的博客</title>
 <meta name="description" content="程序员知多少">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -91,47 +91,57 @@
 
       <div class="main-container">
         <div class="content-container" data-aos="fade-up">
-          
+          <div class="post-detail">
+            <h2 class="post-title">Git入门简介</h2>
+            <div class="post-date">2019-08-10</div>
+            
+            <div class="post-content">
+              <h2 id="git简单使用">Git简单使用</h2>
+<pre><code class="language-markdown">
+git init            //初始化本地仓库
+git add .           //添加文件到版本库（只是添加到缓存区），.代表添加文件夹下的所有文件
+git commit -m &quot;first commit&quot;             //添加要提交文件的描述信息
+git remote add origin +你的远程仓库地址     //链接到远程仓库，创建主分支
+git push -u origin master                //将本地的master分支推送到origin主机的master分支。如果后者不存在，则会被新建
+git pull origin master   //取回远程仓库主机或某个分支（或master）的更新，再与本地的指定分支合并。
+</code></pre>
+<h2 id="git名词解释">Git名词解释</h2>
+<!-- more -->
+<h3 id="拉取-获取-合并-提交-推送-同步">拉取、获取、合并、提交、推送、同步</h3>
+<ol>
+<li><strong>拉取（Pull）</strong>：将远程版本库合并到本地版本库；相当于（Fetch + Meger）</li>
+<li><strong>获取（Fetch）</strong>：从远程仓库获取最新版本</li>
+<li><strong>合并（Meger）</strong>：将两个版本库进行合并操作</li>
+<li><strong>提交（Commit）</strong>：将所做的更改，存入本地暂存库</li>
+<li><strong>推送（Push）</strong>：将所做的更改，存入远程版本库</li>
+<li><strong>同步（Pull + Push）</strong>：先将远程库拉取，再将本地库推送到远程库（注意顺序！）；相当于（Pull+ Push）</li>
+</ol>
+<h2 id="git简单示例图">Git简单示例图</h2>
+<p><img src="https://some-images.oss-cn-hangzhou.aliyuncs.com/git.png" alt="Git"></p>
+<h2 id="git更新gitignore后如何提交">Git更新.gitignore后如何提交</h2>
+<pre><code>
+git rm -r --cached .    //清空缓存
+git add .    //重新提交
+git commit -m &quot;update .gitignore&quot;
+git push
+</code></pre>
 
-          <h2 class="archives-title">文章归档</h2>
-          <div class="archives-container">
+            </div>
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2019</h2>
-              
-                
-                  <article class="post">
-                    <a href="https://jinjupeng.github.io//post/git-ru-men-jian-jie">
-                      <h2 class="post-title">
-                        Git入门简介
-                      </h2>
-                    </a>
-                  </article>
-                
-              
-                
-              
             
-              <h2 class="year" data-aos="fade-in" data-aos-delay="500">2018</h2>
-              
-                
-              
-                
-                  <article class="post">
-                    <a href="https://jinjupeng.github.io//post/hello-gridea">
-                      <h2 class="post-title">
-                        Hello Gridea
-                      </h2>
-                    </a>
-                  </article>
-                
-              
+              <div class="next-post">
+                <div class="next">下一篇</div>
+                <a href="https://jinjupeng.github.io//post/hello-gridea">
+                  <h3 class="post-title">
+                    Hello Gridea
+                  </h3>
+                </a>
+              </div>
             
+
+            
+
           </div>
-
-          <div class="pagination-container">
-  
-  
-</div>
 
         </div>
       </div>
