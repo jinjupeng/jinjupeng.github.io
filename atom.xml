@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://jinjupeng.github.io</id>
     <title>Gridea</title>
-    <updated>2021-12-04T07:00:52.540Z</updated>
+    <updated>2021-12-04T07:06:56.659Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://jinjupeng.github.io"/>
     <link rel="self" href="https://jinjupeng.github.io/atom.xml"/>
@@ -19,7 +19,7 @@
         <content type="html"><![CDATA[<p>It can be usefull to have multiple configuration files, and it follows some develoment best practices like the Interface Segregation Principle or the Separation of Concerns. Moreover, it allows you to have the behavior you want on each configuration file.</p>
 <p>It's very simple and asy to do this using options and configuration objects.</p>
 <p>The first step is to add a file in your project, here customSettings.json, with the content :</p>
-<pre><code>{
+<pre><code class="language-json">{
     &quot;CustomSection1&quot;: {
         &quot;Hi&quot;: &quot;Hi!&quot;,
         &quot;Hello&quot;: &quot;Hello!&quot;
@@ -30,7 +30,7 @@
 }
 </code></pre>
 <p>Create the model of the configuration settings you want to add :</p>
-<pre><code>namespace WebApplication1.Models.CustomSettings
+<pre><code class="language-c#">namespace WebApplication1.Models.CustomSettings
 {
     public class CustomSection1
     {
@@ -45,7 +45,7 @@
 }
 </code></pre>
 <p>Then, use the configuration provider you want (the JSON one here), and add your class to the service container and bound to configuration :</p>
-<pre><code>public class Startup
+<pre><code class="language-c#">public class Startup
 {
     public Startup(IHostingEnvironment env)
     {
@@ -79,7 +79,7 @@
     }
 </code></pre>
 <p>Work is done ! You can now access your settings from your controllers using Dependency Injection on IOptions :</p>
-<pre><code>public class HomeController : Controller
+<pre><code class="language-c#">public class HomeController : Controller
 {
     private readonly CustomSection1 _customSection1;
 
@@ -92,7 +92,8 @@
         _customSection1 = customSection1.Value;
         _customSection2 = customSection2.Value;
     }
-}</code></pre>
+}
+</code></pre>
 ]]></content>
     </entry>
     <entry>
