@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" >
 
-<title>关于 | Gridea</title>
+<title>Add custom configuration file using options and configuration objects | Gridea</title>
 <meta name="description" content="温故而知新">
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -81,25 +81,110 @@
       <div class="sm-12 md-8 col">
         <div class="paper">
           <article class="article">
-            <h1>关于</h1>
+            <h1>Add custom configuration file using options and configuration objects</h1>
             <p class="article-meta">
-              2019-01-25
+              2021-12-04
+              
+                <a href="https://jinjupeng.github.io/tag/T4kXEiyWA/" class="badge secondary">
+                  netcore
+                </a>
               
             </p>
             
             <div class="post-content">
-              <blockquote>
-<p>欢迎来到我的小站呀，很高兴遇见你！🤝</p>
-</blockquote>
-<h2 id="关于本站">🏠 关于本站</h2>
-<h2 id="博主是谁">👨‍💻 博主是谁</h2>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<h2 id="联系我呀">📬 联系我呀</h2>
+              <p>It can be usefull to have multiple configuration files, and it follows some develoment best practices like the Interface Segregation Principle or the Separation of Concerns. Moreover, it allows you to have the behavior you want on each configuration file.</p>
+<p>It's very simple and asy to do this using options and configuration objects.</p>
+<p>The first step is to add a file in your project, here customSettings.json, with the content :</p>
+<pre><code>{
+    &quot;CustomSection1&quot;: {
+        &quot;Hi&quot;: &quot;Hi!&quot;,
+        &quot;Hello&quot;: &quot;Hello!&quot;
+    },
+    &quot;CustomSection2&quot;: {
+        &quot;Bye&quot;: &quot;Bye!&quot;
+     }
+}
+</code></pre>
+<p>Create the model of the configuration settings you want to add :</p>
+<pre><code>namespace WebApplication1.Models.CustomSettings
+{
+    public class CustomSection1
+    {
+        public string Hi { get; set; }
+        public string Hello { get; set; }
+    }
+
+    public class CustomSection2
+    {
+        public string Bye { get; set; }
+    }
+}
+</code></pre>
+<p>Then, use the configuration provider you want (the JSON one here), and add your class to the service container and bound to configuration :</p>
+<pre><code>public class Startup
+{
+    public Startup(IHostingEnvironment env)
+    {
+        var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile(&quot;appsettings.json&quot;, optional: true, reloadOnChange: true)
+            .AddJsonFile($&quot;appsettings.{env.EnvironmentName}.json&quot;, optional: true)
+            .AddJsonFile($&quot;customSettings.json&quot;, optional: true, reloadOnChange: true)
+            .AddEnvironmentVariables();
+
+        if (env.IsDevelopment())
+        {
+            // This will push telemetry data through Application Insights pipeline faster, allowing you to view results immediately.
+            builder.AddApplicationInsightsSettings(developerMode: true);
+        }
+        Configuration = builder.Build();
+    }
+
+    public IConfigurationRoot Configuration { get; }
+
+    // This method gets called by the runtime. Use this method to add services to the container.
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // Add framework services.
+        services.AddApplicationInsightsTelemetry(Configuration);
+
+        services.Configure&lt;CustomSection1&gt;(options =&gt; Configuration.GetSection(&quot;CustomSection1&quot;).Bind(options));
+        services.Configure&lt;CustomSection2&gt;(options =&gt; Configuration.GetSection(&quot;CustomSection2&quot;).Bind(options));
+
+        services.AddMvc();
+    }
+</code></pre>
+<p>Work is done ! You can now access your settings from your controllers using Dependency Injection on IOptions :</p>
+<pre><code>public class HomeController : Controller
+{
+    private readonly CustomSection1 _customSection1;
+
+    private readonly CustomSection2 _customSection2;
+
+    public HomeController(
+        IOptions&lt;CustomSection1&gt; customSection1
+        , IOptions&lt;CustomSection2&gt; customSection2)
+    {
+        _customSection1 = customSection1.Value;
+        _customSection2 = customSection2.Value;
+    }
+}</code></pre>
 
             </div>
           </article>
         </div>
         <div class="paper" data-aos="fade-in">
+          
+            <div class="next-post">
+              <div class="next">
+                下一篇
+              </div>
+              <a href="https://jinjupeng.github.io/post/hello-gridea/">
+                <h3 class="post-title">
+                  Hello Gridea
+                </h3>
+              </a>
+            </div>
           
         </div>
         
@@ -157,11 +242,11 @@
     </div>
     <div class="row">
       
-        <a href="https://jinjupeng.github.io/tag/T4kXEiyWA/" class="badge secondary">
+        <a href="https://jinjupeng.github.io/tag/T4kXEiyWA/" class="badge success">
           netcore
         </a>
       
-        <a href="https://jinjupeng.github.io/tag/LOZgx7_CN/" class="badge secondary">
+        <a href="https://jinjupeng.github.io/tag/LOZgx7_CN/" class="badge success">
           Gridea
         </a>
       
